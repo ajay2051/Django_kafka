@@ -1,14 +1,16 @@
 import json
 import random
-from datetime import datetime
-from kafka import KafkaProducer
 import time
+from datetime import datetime
+
+from kafka import KafkaProducer
 
 producer = KafkaProducer(bootstrap_servers=['localhost:9092'],
                          value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 
 emotions = ["happy", "sad", "angry", "neutral"]
 genders = ["male", "female", "other"]
+
 
 def generate_random_data():
     return {
@@ -18,6 +20,7 @@ def generate_random_data():
         "gender": random.choice(genders),
         "timestamp": datetime.now().isoformat()
     }
+
 
 while True:
     data = generate_random_data()
