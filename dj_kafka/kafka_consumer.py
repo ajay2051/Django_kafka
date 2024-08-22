@@ -25,6 +25,10 @@ while True:
 
 
 def start_consuming():
+    """
+    This function creates FaceEmbed object
+    :return: None
+    """
     for message in consumer:
         data = message.value
         FaceEmbed.objects.create(

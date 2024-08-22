@@ -20,6 +20,11 @@ genders = ["male", "female", "other"]
 
 
 def generate_random_data():
+    """
+    This function generates random data
+    :return: Random model data
+    """
+
     return {
         "id": random.randint(1, 1000000),
         "age": random.randint(1, 100),
