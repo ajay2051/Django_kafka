@@ -4,9 +4,16 @@ import time
 from datetime import datetime
 
 from kafka import KafkaProducer
+from kafka.errors import NoBrokersAvailable
 
-producer = KafkaProducer(bootstrap_servers=['localhost:9092'],
-                         value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+while True:
+    try:
+        producer = KafkaProducer(bootstrap_servers=['localhost:9092'])
+        print("Successfully connected to Kafka")
+        break
+    except NoBrokersAvailable:
+        print("No brokers available. Retrying in 5 seconds...")
+        time.sleep(5)
 
 emotions = ["happy", "sad", "angry", "neutral"]
 genders = ["male", "female", "other"]
