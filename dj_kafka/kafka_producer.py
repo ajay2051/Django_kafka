@@ -21,6 +21,7 @@ while True:
 emotions = ["happy", "sad", "angry", "neutral"]
 genders = ["male", "female", "other"]
 
+
 def generate_random_data():
     """
     This function generates random data
@@ -33,6 +34,7 @@ def generate_random_data():
         "gender": random.choice(genders),
         "timestamp": datetime.now().isoformat()
     }
+
 
 while True:
     data = generate_random_data()

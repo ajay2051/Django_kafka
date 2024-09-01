@@ -3,6 +3,7 @@ def solution(A):
         return -1
     return mergesort(A, 0, len(A) - 1)
 
+
 def mergesort(a, left, right):
     if left < right:
         mid = (left + right) // 2
@@ -12,6 +13,7 @@ def mergesort(a, left, right):
         return left_inversions + right_inversions + merge_inversions
     else:
         return 0
+
 
 def merge(A, left, mid, right):
     i = left
@@ -36,14 +38,14 @@ def merge(A, left, mid, right):
         temp.append(A[j])
         j += 1
 
-    A[left:right+1] = temp
+    A[left:right + 1] = temp
     return inversions
+
 
 if __name__ == '__main__':
     A = [-1, 6, 3, 4, 7, 4]
     m = solution(A)
     print(m)
-
 
 # Given array: A = [-1, 6, 3, 4, 7, 4]
 # call merge(A, 0, 1, 2):
